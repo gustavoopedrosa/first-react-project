@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import ListaDeNotas from "./components/ListadeNotas"
+import FormularioCadastro from "./components/FormularioCadastro"
+import React, { Component } from 'react'
+import "./assets/App.css"
+import './assets/index.css'
+class App extends Component {
+  handleSubmit(titulo, texto){
+    console.log(` ` + titulo + " " + texto)
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <section className="conteudo">
+        <FormularioCadastro handleSubmit={this.handleSubmit}/>
+        <ListaDeNotas />
+      </section>
+    )
+  }
+
 }
 
 export default App;
