@@ -21,7 +21,7 @@ class FormularioCadastro extends Component {
     _handleSubmit(evento) {
         evento.preventDefault()
         evento.stopPropagation()
-        this.props._handleSubmit(this.titulo, this.texto)
+        this.props.handleSubmit(this.titulo, this.texto)
     }
 
     render() {

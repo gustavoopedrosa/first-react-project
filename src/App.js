@@ -4,20 +4,31 @@ import React, { Component } from 'react'
 import "./assets/App.css"
 import './assets/index.css'
 class App extends Component {
-  handleSubmit(titulo, texto){
-    console.log(` ` + titulo + " " + texto)
+  constructor() {
+    super()
+    this.state = {
+      notas: []
+    }
+  }
+
+  handleSubmit(titulo, texto) {
+    const novaNota = { titulo, texto }
+    const novoArrayNotas = [...this.state.notas, novaNota]
+    const novoEstado = {
+      notas: novoArrayNotas
+    }
+    this.setState(novoEstado)
   }
 
   render() {
     return (
       <section className="conteudo">
-        <FormularioCadastro handleSubmit={this.handleSubmit}/>
-        <ListaDeNotas />
+        <FormularioCadastro handleSubmit={this.handleSubmit.bind(this)} />
+        <ListaDeNotas notas={this.state.notas} />
       </section>
     )
   }
 
 }
-
 
 export default App;
